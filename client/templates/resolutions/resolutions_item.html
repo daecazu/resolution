@@ -1,9 +1,9 @@
 <template name="resolutionsItem">
 <div class="post">
-	<li>
-		<h3>
-			{{title}}
-		</h3>
+	<li class="{{#if checked}}checked{{/if}}">
+		<input type="checkbox" checked="{{checked}}" class="toogle-checked">
+		<span class="text">{{title}}</span>
+		<button class="delete">Remove</button> <!--botón delete -->
 	</li>
 </div>
 </template>

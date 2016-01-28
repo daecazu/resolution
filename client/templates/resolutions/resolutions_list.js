@@ -12,6 +12,13 @@ Template.resolutionsList.events({
 		});
 		event.target.title.value =""; //sirve para limpiar el formulario
 
-		return false; //para que no se refresque
+		return false; //para que no se refresque debido al evento submit
+}});
+Template.resolutionsList.events({
+	'click .toogle-checked': function() {
+		Resolutions.update(this._id, {$set: {checked: !this.checked}})
+	},
+	'click .delete': function () { //captura el evento delete
+		Resolutions.remove(this._id); //borra la entrada a la que está apuntando el "puntero"
 	}
 });
