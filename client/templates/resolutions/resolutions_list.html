@@ -1,7 +1,19 @@
 <template name="resolutionsList">
+	<div class="container">
+		<header>
+			<h1> Cosas por hacer de manera mensual</h1>
+			<form class="new-resolution">
+				<input type="text" name="title" placeholder="A new resolution">
+				<input type="submit" value="submit">
+			</form>
+		</header>	
+	</div>
+
   <div class="resolutions">
+  	<ul>
     {{#each resolutions}}
       {{> resolutionsItem}}
     {{/each}}
+    </ul>
   </div>
 </template>
