@@ -1,7 +1,7 @@
 Template.resolutionsList.helpers({
   resolutions: function() {
   	if(Session.get('hideFinished')){
-  		return Resolutions.find({checked: {$ne: true}})
+  		return Resolutions.find({checked: {$ne: true}})//si está seleccionado no se muestra dentro de el sitio
   	}else{
     	return Resolutions.find();
   	}},
@@ -31,4 +31,14 @@ Template.resolutionsList.events({
 	'change .hide-finished': function(event){
 		Session.set('hideFinished', event.target.checked);
 	}
+});
+
+Accounts.ui.config({ //se configuran las cuentas
+	requestPermissions: {
+		// facebook: ['user_likes']
+	},
+	requestOfflineToken: {
+		// google: true
+	},
+	passwordSignupFields: 'USERNAME_ONLY' //  One of 'USERNAME_AND_EMAIL', 'USERNAME_AND_OPTIONAL_EMAIL', 'USERNAME_ONLY', or 'EMAIL_ONLY' (default).
 });
