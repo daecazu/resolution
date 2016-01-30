@@ -1,7 +1,11 @@
 <template name="resolutionsList">
 	<div class="container">
 		<header>
-			<h1> Cosas por hacer de manera mensual</h1>
+			<h1> Tareas por hacer de manera mensual</h1>
+			<label class="hide-finished">
+				<input type="checkbox" checked ="{{hideFinished}}">
+				Ocultar las tareas realizadas
+			</label>
 			<form class="new-resolution">
 				<input type="text" name="title" placeholder="A new resolution">
 				<input type="submit" value="submit">
