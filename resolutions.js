@@ -1,23 +1,15 @@
-if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
+Meteor.methods({
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
-  });
-
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
-}
-
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
-}
+	addResolution: function(title){
+		Resolutions.insert({ //insertamos titulo y fecha en la base de datos
+			title : title,
+			createdAt: new Date()
+		});
+	},
+	deleteResolutions: function(id){
+		Resolutions.remove(id); //borra la entrada a la que está apuntando el "puntero"
+	},
+	updateResolutions: function(id, checked){
+		Resolutions.update(id, {$set: {checked: checked}})
+	}
+});
