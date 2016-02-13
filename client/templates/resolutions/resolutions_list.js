@@ -1,3 +1,4 @@
+
 Template.resolutionsList.helpers({
   resolutions: function() {
   	if(Session.get('hideFinished')){
@@ -19,7 +20,7 @@ Template.resolutionsList.events({
 		return false; //para que no se refresque debido al evento submit
 }});
 Template.resolutionsList.events({
-	'click .toogle-checked': function() {
+	'click .toogle-checked': function () {
 		Meteor.call("updateResolutions", this._id, !this.checked);
 	},
 	'click .delete': function () { //captura el evento delete
