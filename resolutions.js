@@ -8,9 +8,17 @@ Meteor.methods({
 		});
 	},
 	deleteResolutions: function(id){
+		var res = Resolutions.findOne(id);
+		if(res.owner!== Meteor.userId()){
+			throw new Meteor.Error('not-authorized');
+		}
 		Resolutions.remove(id); //borra la entrada a la que está apuntando el "puntero"
 	},
 	updateResolutions: function(id, checked){
+		var res = Resolutions.findOne(id);
+		if(res.owner!== Meteor.userId()){
+			throw new Meteor.Error('not-authorized');
+		}
 		Resolutions.update(id, {$set: {checked: checked}});
 	},
 	setPrivate: function(id, private){

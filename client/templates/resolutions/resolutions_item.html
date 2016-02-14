@@ -1,8 +1,8 @@
 <template name="resolutionsItem">
 <div class="post">
 	<li class="{{#if checked}}checked{{/if}}">
-				<input type="checkbox" checked="{{checked}}" class="toogle-checked">
-		{{#if isOwner}}
+		{{#if isOwner}}		
+			<input type="checkbox" checked="{{checked}}" class="toogle-checked">
 			<button class="toogle-private">
 			{{#if private}}
 				private
@@ -13,7 +13,9 @@
 		{{/if}}
 
 		<span class="text">{{title}}</span>
+		{{#if isOwner}}	
 		<button class="delete">Remove</button> <!--botón delete -->
+		{{/if}}
 	</li>
 </div>
 </template>
